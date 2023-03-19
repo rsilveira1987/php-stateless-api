@@ -1,2 +1,2 @@
-# php-stateless-app
-PHP stateless app example
+# php-stateless-api
+PHP stateless api example
