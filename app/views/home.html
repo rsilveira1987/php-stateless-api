@@ -1,0 +1,185 @@
+{% extends 'templates/document.html' %}
+{% import "templates/macros.twig" as components %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+
+   {% include 'templates/header.html' %}
+  
+   <style>
+
+      body {
+         padding-bottom: 8rem;
+      }
+     
+      .grid-item figure {
+         width: 100%;
+         height: 150px;
+         display: block;
+         position: relative;
+         /* background: linear-gradient(to top, #3204fdba, #9907facc), url(https://picsum.photos/150/150/?random=1) no-repeat top center; */ 
+      }
+      .grid-item figure .overlay {
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         z-index: 1;
+         color: #FFFFFF;
+         padding: 1rem;
+
+         display: flex;
+         flex-flow: row nowrap;
+         justify-content: space-between;
+         align-items: center;
+         gap: 1rem;
+      }
+
+      .grid-item .gradient {
+         width: 100%;
+         height: 100%;
+         background: var(--support-gradient) no-repeat top center;
+         /* background-blend-mode: luminosity; */
+         opacity: .75;
+      }
+
+      .dismissable {
+         margin: 2rem 0;
+         /* border: 1px solid var(--color-black5); */
+         background-color: #FAFAFA;
+         padding: 1.5rem;
+         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+         /* box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; */
+      }
+
+      .dismissable button {
+         cursor: pointer;
+         float: right;
+         color: var(--color-black80);
+         background-color: var(--color-black10);
+         padding: .25rem .5rem;
+         border: none;
+         width: 30px;
+         height: 30px;
+         border-radius: 50%;
+         display: flex;
+         flex-flow: column nowrap;
+         align-items: center;
+         justify-content: center;
+         margin-left: 1rem;
+         margin-bottom: 1rem;
+      }
+      .dismissable button:hover {
+         color: var(--color-black100);
+      }
+      iframe {
+         background-color: #FFF;
+         position: fixed;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         width: 100vw;
+         height: 100vh;
+         display:block;
+         z-index: 999;
+      }
+      
+   </style>
+   <div class="container">
+
+      <section style="margin: 2rem 0; display: flex; flex-flow: row nowrap; gap: 1rem; align-items: center;">
+         <figure class="thumbnail">
+            {% set initials = auth.user.first_name|first ~ auth.user.second_name|first  %}
+            <img src="{{ auth.user.url_image }}" onerror="this.onerror=null,this.src='{{ path_for("api.thumbnail",{initials:initials}) }}'" alt="Thumbnail">     
+        </figure>
+         <div>
+            <p style="font-weight: bold;">Olá, {{auth.user.first_name }}</p>
+            <small style="color: var(--color-black50);">{{auth.user.email }}</small>
+         </div>
+         <button type="button">
+            <span class="material-symbols-outlined">
+               expand_more
+            </span>
+         </button>
+      </section>
+
+      <section>
+         <div class="grid">
+            <div class="grid-item">
+               <figure style="background: url(https://images.unsplash.com/photo-1607748838605-ebcbe8f15772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80); background-size: cover; background-position: center;">
+                  <div class="gradient"></div>
+                  <span class="overlay">
+                     <p style="font-size: var(--h2);">{{ total_accounts }} Accounts</p>
+                     <a href="{{ path_for('account.create') }}" class="btn-white">Adicionar</a>
+                  </span>
+               </figure>
+            </div>
+         </div>
+      </section>
+
+      <button type="button" onclick="newWindow('{{ path_for("ssr.me") }}')">Create Account</button>
+
+      <!-- <iframe src="{{ path_for('ssr.me') }}">
+      </iframe> -->
+
+
+      <div class="dismissable">
+         <button type="button">
+            <span class="material-icons">close</span>
+         </button>
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit nobis ducimus architecto aliquid non, est soluta quidem id earum doloremque! Nobis at possimus molestias vero pariatur nemo suscipit cupiditate vitae.</p>
+      </div>
+
+      <p style="margin: 2rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, consequatur. Quo, eos laboriosam. Placeat, qui cum tenetur ipsam quae officiis nostrum error dolore, dolorum quos porro perspiciatis odit quod dignissimos?</p>
+
+      <p style="margin: 2rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, consequatur. Quo, eos laboriosam. Placeat, qui cum tenetur ipsam quae officiis nostrum error dolore, dolorum quos porro perspiciatis odit quod dignissimos?</p>
+
+      <p style="margin: 2rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, consequatur. Quo, eos laboriosam. Placeat, qui cum tenetur ipsam quae officiis nostrum error dolore, dolorum quos porro perspiciatis odit quod dignissimos?</p>
+
+      <p style="margin: 2rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, consequatur. Quo, eos laboriosam. Placeat, qui cum tenetur ipsam quae officiis nostrum error dolore, dolorum quos porro perspiciatis odit quod dignissimos?</p>
+
+      <p style="margin: 2rem 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, consequatur. Quo, eos laboriosam. Placeat, qui cum tenetur ipsam quae officiis nostrum error dolore, dolorum quos porro perspiciatis odit quod dignissimos?</p>
+
+      <button type="button" class="btn-cta" onclick='window.location.href="{{ path_for('account.create') }}"'>Go to!</button>
+
+   </div>
+
+   {% set active = 'home' %}
+   {% include 'templates/navbar.html' %}
+{% endblock %}
+
+{% block js %}
+<style>
+   .window {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #FFFFFF;
+      z-index: 100;
+   }
+
+   .window:target {
+      display: block !important;
+   }
+</style>
+<script>
+      
+   function newWindow(url) {
+      var frame = $('<div class="window"/>');
+      frame.attr('id','window');
+      frame.load(url);
+      $('body').append(frame);
+      window.location.hash = "window";
+   }
+
+   $(document).ready(function(e){
+      console.log(body);
+   });
+</script>
+{% endblock %}

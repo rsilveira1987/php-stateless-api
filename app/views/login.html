@@ -1,0 +1,117 @@
+{% extends 'templates/document.html' %}
+
+{% block title %}Login{% endblock %} 
+
+{% block body %}
+    <style>
+        .wrapper {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .form-actions {
+            margin: 2rem 0;
+        }
+        .form-control {
+            width: 100%;
+        }
+
+        .header {
+            padding: .5rem;
+            height: 80px;
+
+            /* background: #FAFAFA; */
+            border-top: 10px solid var(--color-support100);
+            border-bottom: 1px solid var(--color-black10);
+            /* box-shadow: rgba(100, 100, 111, 0.15) 0px 7px 29px 0px; */
+        }
+        .header .container {
+            padding-top: 5px;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1rem;
+            align-items: flex-start;
+            justify-content: center;
+            height: 100%;
+        }
+    </style>
+    <header class="header">
+        <div class="container">
+            <p style="color: var(--color-support100); font-weight: bold;">MYAPP</p>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        
+        <form name="frmLogin" class="form" action="" method="POST" style="margin: 4rem 0;">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-cta btn-block" name="action" value="login">Login</button>
+                </div>
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label class="label-container">
+                        <input type="checkbox" name="rememberme" id="rememberme">
+                        <span class="checkmark"></span>
+                        <p>Lembrar de mim</p>
+                    </label>
+                </div>
+        </form>
+        
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+
+    function getRememberMe() {
+        return localStorage.getItem('rememberme') === 'true';
+    }
+
+    function setRememberMe(value) {
+        window.localStorage.setItem('rememberme', value);
+    }
+
+    function getEmail() {
+        return window.localStorage.getItem('email') || '';
+    }
+
+    function setEmail(value) {
+        window.localStorage.setItem('email', value);
+    }
+
+    $(document).ready(function(e){
+        
+        // set item
+        if(getRememberMe()) {
+            $('#rememberme').prop('checked',true);
+            $('#email').val(getEmail());
+        }
+        
+        // if(getRememberMe()) {
+        //     $('#rememberme').prop('checked',true);
+        // } else {
+        //     $('#rememberme').removeProp('checked');
+        // }
+
+        $('form').on('submit',function(e){
+            
+            let rememberProp = $('#rememberme').prop('checked');
+            let email = $('#email').val();
+
+            if(rememberProp) {
+                setRememberMe('true');
+                setEmail(email);
+            } else {
+                setRememberMe('false');
+                setEmail('');
+            }
+        });
+    });
+</script>
+{% endblock %}

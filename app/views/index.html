@@ -1,0 +1,23 @@
+{% extends 'templates/document.html' %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+   <div class="container">
+      <header>
+         <a href="{{ path_for('account.list') }}" class="btn">
+            <i class="material-icons">manage_accounts</i>
+            <span>Accounts</span>
+         </a>
+         <a href="{{ path_for('login') }}" class="btn">
+            <i class="material-icons">manage_accounts</i>
+            <span>Logout</span>
+         </a>
+      </header>
+      
+      <h1>Index</h1>
+      <pre>
+      {{ uuid }}
+      </pre>
+   </div>
+{% endblock %}

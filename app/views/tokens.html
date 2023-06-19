@@ -1,0 +1,129 @@
+{% extends 'templates/document.html' %}
+{% import "macros/thumbnail.twig" as macro %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+
+    <style>
+        header.header {
+            border-bottom: 1px solid var(--color-black10);
+            height: 80px;
+        }
+        header.header .container {
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+        figure.thumbnail {
+            margin: 2rem 0;
+        }
+        .header .container {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .group {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1rem;
+            align-items: center;
+            margin: .5rem 0;
+        }
+
+        .info {
+            margin: 2rem 0;
+            /* border: 1px solid var(--color-black5); */
+            background-color: #FAFAFA;
+            padding: 1.5rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            /* box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; */
+        }
+        
+    </style>
+
+    <header class="header">
+        <div class="container">
+            <a href="{{ path_for('home') }}" class="header-btn">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <p style="font-size: var(--h4);">Meus Tokens</p>
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <section>
+            <style>
+                
+                .item {
+                    margin: 1rem 0;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    gap: 1rem;
+                    background-color: #FAFAFA;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                    
+                }
+                .item p {
+                    flex: 1;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .dismissable {
+                    margin: 2rem 0;
+                    /* border: 1px solid var(--color-black5); */
+                   
+                    /* box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; */
+                }
+
+                .item button {
+                    cursor: pointer;
+                    color: var(--color-black80);
+                    background-color: var(--color-black10);
+                    padding: 2rem;
+                    border: none;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .row {
+                    margin: .5rem 0;
+                }
+            </style>
+            <div class="grid">
+                {% for token in tokens %}
+                <div class="item">
+                    <span style="padding: 2rem;">
+                        <i class="material-symbols-outlined">
+                            key
+                        </i>
+                        <div>
+                            <div class="row">
+                                <p>Emitida em:</p>
+                                <p>{{ token.created_at }}</p>
+                            </div>
+                            <div class="row">
+                                <p>Agente:</p>
+                                <p>{{ token.user_agent }}</p>
+                            </div>
+                        </div>
+                    </span>
+                    <form action="{{ path_for('tokens.remove') }}" method="POST">
+                        <input type="hidden" name="jwt" value="{{ token.value }}">
+                        <button type="submit" name="action" value="remove">
+                            <span class="material-icons">delete</span>
+                        </button>
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends 'templates/document.html' %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+
+    <style>
+       header {
+        border-bottom: 1px solid var(--color-black10);
+        height: 80px;
+       }
+
+       header .container {
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+       }
+
+       form {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        /* gap: 1rem; */
+       }
+
+       form input {
+            width: 100%;
+            background-color: #FAFAFA;
+            border: 2px solid var(--color-black10);
+            border-radius: 4px;
+            padding: 1rem;
+            padding-left: 2.5rem;
+        }
+
+        form input:focus {
+            background-color: #FFFFFF;
+            outline: 2px solid var(--color-support50);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+
+        .btn-form {
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--color-black70);
+        }
+
+        .btn-form:hover {
+            color: var(--color-black100);
+        }
+
+        .btn-search {
+            position: absolute;
+            left: .5rem;
+        }
+
+        .btn-clear {
+            position: absolute;
+            right: .5rem;
+        }
+       
+    </style>
+
+    <header>
+        <div class="container">
+           
+            <form action="" data-action="{{ path_for('ssr.search-accounts') }}">
+                <button type="submit" name="action" value="search" class="btn-form btn-search">
+                    <i class="material-icons">search</i>
+                </button>
+                <!-- <a href="{{ path_for('account.list') }}">
+                    <i class="material-icons">arrow_back</i>
+                </a> -->
+                <input type="text" name="query" id="query" placeholder="Pesquisar" autocomplete="off" value="{{ query }}">
+                <button type="button" onclick="clearData();" class="btn-form btn-clear">
+                    <i class="material-icons">close</i>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    {% set active = 'search' %}
+    {% include 'templates/navbar.html' %}
+    
+{% endblock %}
+
+{% block js %}
+<script>
+    
+    function showSnackbar(status,message) {
+        $('.snackbar').removeClass('fail').removeClass('success').addClass(status);
+        $('.snackbar p').text(message);
+        $('.snackbar-wrapper').addClass('open');
+    }
+    function closeSnackbar() {
+        $('.snackbar-wrapper').removeClass('open');
+    }
+    function showModal(title, description) {
+        $('.modal-title h5').text(title);
+        $('.modal-body p').text(description);
+        $('.modal-wrapper').addClass('open');
+    }
+    function closeModal() {
+        $('.modal-wrapper').removeClass('open');
+    }
+    function clearData() {
+        // var target = $('#grid');
+        // $(target).empty();
+        window.location.href = "{{ path_for('search') }}";
+        
+    }
+
+    function loadData(data) {
+        var target = $('#grid');
+        $(data.response).each(function(index, obj){
+            $(target).append(
+                "<div class=\"grid-item\">" +
+                    "<a href=\"/accounts/"+obj.uuid+"/view\">" +
+                        "<figure class=\"thumbnail\">" +
+                            "<img src=\""+obj.url_image+"\">" +
+                        "</figure>" +
+                        "<div>" +
+                            "<p>"+obj.first_name+" "+obj.second_name+"</p>" +
+                            "<small>"+obj.email+"</small>" +
+                        "</div>" +
+                    "</a>" +
+                "</div>"  
+            );
+        });
+    }
+
+    $(document).ready(function(e){
+
+        $('form').on('submit',function(e){
+            e.preventDefault();
+            let query = $('#query').val();           
+            // window.location.href = "{{ path_for('search') }}/" + encodeURI(query);
+            if (query)
+                window.location.href = "{{ path_for('search') }}/" + encodeURI(query);
+        });
+
+        // $('form').on('submit',function(e){
+        //     e.preventDefault();
+        //     try {
+        //         let formData = new FormData(this);
+        //         // form reference
+        //         let form = this;
+        //         // form action
+        //         let url = $(this).data('action');
+        //         //Create an object from the form data entries
+        //         let formDataObject = Object.fromEntries(formData.entries());
+        //         // Format the plain form data as JSON
+        //         let formDataJsonString = JSON.stringify(formDataObject);
+
+        //         // $('#response').load('{{ path_for("ssr.search-accounts") }}');
+
+        //         $.ajax({
+        //             type: 'GET',
+        //             url: url,
+        //             data: formDataObject,
+        //         })
+        //         .done(function(data) {
+        //             // console.log(data);
+        //             $('#response').html(data);
+        //             // showSnackbar('success','Dados atualizados.');
+        //             // return resolve(data);
+        //         })
+        //         .fail(function(error) {
+        //             console.error(error);
+        //             // showSnackbar('fail',error.responseJSON.response);
+        //             // return reject(error);
+        //         })
+        //         .always(function() {
+        //             console.log('always');
+        //             // called after done or fail
+        //         });
+
+        //         // $.ajax({
+        //         //     type: 'GET',
+        //         //     url: url,
+        //         //     data: formDataObject,
+        //         //     // contentType: 'application/json',
+        //         //     // dataType: 'json'
+        //         // })
+        //         // .done(function(data) {
+        //         //     // console.log(data);
+        //         //     $('#grid').load();
+        //         //     loadData(data);
+        //         //     // showSnackbar('success','Dados atualizados.');
+        //         //     // return resolve(data);
+
+        //         // })
+        //         // .fail(function(error) {
+        //         //     console.error(error);
+        //         //     // showSnackbar('fail',error.responseJSON.response);
+        //         //     // return reject(error);
+        //         // })
+        //         // .always(function() {
+        //         //     console.log('always');
+        //         //     // called after done or fail
+        //         // });
+
+
+        //         //Call the `postFormFieldsJson()` function
+        //         // let responseData = await postFormFieldsAsJson({ url, formFields });
+        //     } catch (error) {
+        //         // Handle the error here.
+        //         console.error(`An has occured ${error}`);
+        //     }
+        // });
+
+    });
+    
+</script>
+{% endblock %}

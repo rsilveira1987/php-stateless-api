@@ -1,0 +1,134 @@
+-- -----------------------------------------------------
+-- Schema maosdadas
+-- -----------------------------------------------------
+USE `apidb` ;
+
+INSERT INTO `tb_accounts` VALUES (1,'59e10fa0-a82b-4644-a789-a7720430bf83','Ricardo','Silveira','rsilveira1987@gmail.com','$2y$10$MpoZLSx26rffdjmVgHHABuU4i.POF.b88gn2iSFVci9y3bmX1GjfG','https://avatars.githubusercontent.com/u/20773035?v=4',current_time,NULL);
+
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (2,'Paula','Pereira de Castro','paulap.castro@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (3,'MÃ¡rcia','da Silva e Silva','marciaesilva2020@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (4,'Rubiana','Padilha da Silva Pasa','rubianapasa@outlook.com',1,'$2y$10$nup/OSBxZhv1fflFUqV9V.JXpNn.5xHTps4fb1s3LOaEHOiwJMCde',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (5,'Deise','Neis Bueno','deiseneisbueno@yahoo.com.br',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (6,'Ana Clara','dos Santos Cesa e Silva','anacesa@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (7,'Tatiana','Amaro','tatiaamaro@hotmail.com',1,'$2y$10$J.mrv/1l5BX3CpWD63F2MeUcRPdqLMLI34B8H9R0/i0/38G0qfAIS',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (8,'Luiz Antonio','Garcia de Abreu','luizantoniogarciadeabreu@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (9,'Jacqueline','Rodrigues de Albuquerque','jack_albuquerque@hotmail.com',1,'$2y$10$z6Ouh1VAz8S3sQ9atlbi/OTrrOuiX7rFtQY39rbDwJFhCE.PUDksi',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (10,'Giovani','Soares Bonatto','bonatto.giovani@gmail.com',1,'$2y$10$bIZ7Fp7tn8BNRV4JNoi3bOFK3miibGt4jxLZXHwv5N9GPb/6xvDby',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (11,'Douglas Henrique','da Rosa Gomes','douglashrg.dan@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (12,'Giovanna ','MattÃ© de Souza','gmsouza.adv@outlook.com',1,'$2y$10$T/rfOE08xI51ID3MTkDaPOQdQcTeFmIunkVrvgVoAgxLYFFpqWrRi',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (13,'Luana','Piovesan','lu.piovesan@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (14,'Georgeton','Santos Ferreira','g9.george@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (15,'Rejane','Aparecida Silva dos Santos Cabral','rejanessilva77@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (16,'Tabata','Lima Palskuski','tabatapalskuski@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (17,'Juliane','Rios Petrarca','petrarcaju@gmail.com',1,'$2y$10$/ZaUa6rh2SxpktxOKCTJ7uZE8Kq5/I3eyKkHULieOpCFQQ9lD83gC',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (18,'Carolina','RÃ¼besam Ourique','carolinaourique79@gmail.com',1,'$2y$10$DQm/QkfaOJmmYhsvMATr4.WVlBf9OWbWt3Bdnidsx6cRVNWV5OKvy',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (19,'Mariana','Lessa','lessa6@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (20,'Mariana','Clezar Lafin','marianalafin@hotmail.com',1,'$2y$10$17.yLi5gIPSJLflq.gs9beXjRNkMicE6XIPV/iZiJozuMVRNNT10W',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (21,'Andressa','da Silva Andrade','andrade__andressa@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (22,'Ricardo','Daniel Silva de Souza','ricardodss7@gmail.com',1,'$2y$10$ODG5syJZTbKWJllc41yuUeS53txeg75TaKXJDlTiXe61TcD7wGe2a',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (23,'Paula','Giampaoli da Silva','paulinhags@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (24,'Cris','','csconsorti@gmail.com',1,'$2y$10$8BTd1ymc838JER5.Yb15H.KkCeWOM9vOKo9jUFtJ6Q8HQCH76ln.y',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (25,'Jaqueline','Diel Alberton','jaquelinedalberton@gmail.com',1,'$2y$10$fqMZ5bKg1SuBppFgFzNLR.SFd0Ir9bOa/g8oyuTq9PRoO8Xdqya6O',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (26,'ThomÃ¡s','Bortolini','th_bortolini@hotmail.com',1,'$2y$10$54QTt8kitQQ1FvOzCG3CquoiAG0URYGp2tbRmAYu71b2rfLpZcSBe',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (27,'Marlene','Magagna Wisnieski','wisnieski@hotmail.com',1,'$2y$10$aNvijBirIg3vSRf6skVVsefgQ426IkPElWGkIpdlwqnX5.5y4125G',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (28,'Paola','Fornari Vanni','paolavanni@gmail.com',1,'$2y$10$3X7kezcDxlXm9p0tBoQdsO1odU.CvCgHC1vtTBUXOd9ChGhFyT9e2',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (29,'Bruna','Pazini Hoch','brunapazini@outlook.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (30,'Janaina','Mendes Von Muhlen','jana.mv@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (31,'Karen','Fialho','karenfialho.81@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (32,'Jaime','Oronil carvalho trindade','jaimecarvalho1903@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (33,'FÃ¡bio','de AraÃºjo Ricardo','fabio.corsan6@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (34,'Gilnei','Lino Bertuol','bertuolgilnei@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (35,'Aline','Mendes Rosa Stein','alinesthein@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (36,'Tamara','Gutierres','tamaragutierres14@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (37,'Emanuela','Fiorelli','manufiorelli4@gmail.com',1,'$2y$10$xcXv5Gbj1Q4JiDBQk1gTOOjdvJf83bXLrPju/4rxF3078C9W1Kv46',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (38,'Rosane','A. Radin Dornelles','rosaneradin@yahoo.com.br',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (39,'LetÃ­cia','da Silva Senna','lesenna3@hotmail.com',1,'$2y$10$MhwXsf5Uh2Uw/zX2vMTxEe49dL/qDmD9.XqKPmVXMLd76zjiYTBme',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (40,'Raquel','Vasconcelos Medeiros','falecomaraquel@gmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (41,'LÃ­gia','ValÃ©ria Bernardi','lvbernardi@hotmail.com',1,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (42,'Daiana','MÃ¼nchen','daiana-km@hotmail.com',1,'$2y$10$FTKqomkw/OIeqqa9q2qSGeeoN/C2qFtEfirovh6UB2UsueF42.HP2',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (43,'Luciele','Trentini','lucieletrentini@hotmail.com',0,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (44,'Caroline','Nauter','carolinenauter@gmail.com',0,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (45,'Taiane','Escobar','taianeescobar@hotmail.com',0,'$2y$10$9Jemnzqn23Vm8j8CcBPdkefjdbNSqWpE/bm9Yh37AVQa4Dy/NJsRG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (47,'Lisieli','Venturini Baratto','lisielivb@hotmail.com',1,'$2y$10$UZl7TvR70wMVx52HV6sKgO5EudPdxAgTidmtEzMKYeXsihxubqCVq',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (48,'Danielle','Dutra Rodrigues','danidutrar@hotmail.com',1,'$2y$10$R3d24r2pq4xO0pihieir9.5SmZ7aRMtbcCU4GdWr0crNwKKeKJ9Fy',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (49,'MARIANA','LONGARETTI','144065@upf.br',1,'$2y$10$BW3Ax8kp237dlPUTVRt7ueALaG0vhSQzOCHq6JHiuCR1d64faGyXa',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (50,'Mateus','LuÃ­s lenhard','mateusllenhard@yahoo.com.br',1,'$2y$10$ANzV8NBIwDM5cm0fETC7Q.Iter02ybRpar7rnahfN0Wh3mWO3qATS',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (52,'Ana Paula','Batista','paulasilvabatista@gmail.com',1,'$2y$10$kh7.zPJVPTY1UG2YeEIZjuWdUfnjTSoLczHrwRCvUeQzjTX4chRlS',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (53,'ISABEL','PAIM DOS SANTOS','belapaim@gmail.com',1,'$2y$10$ycPWPqjCBgVYF.6bhHzzsOSAEQTkpSnCFfFEvDDStJMLDIZQv5Q72',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (54,'Angelo','Suita Freitas','angelosuita@gmail.com',1,'$2y$10$ugqiqdfpf5mdFf8zfBV09O.0rpAvAxtKnSfb0v0aX/oEbVyMr/X4e',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (55,'Leticia','Bonetti','leticiabonetti@hotmail.com',1,'$2y$10$GusAGj2QXzO7AW2DmzS1ieWNUXBkONeUWLo7X/F9MsHMI8cYpOGxi',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (56,'Ammanda','Borghetti','ammandaborghetti@gmail.com',1,'$2y$10$OKafKHknt7iGuS8MLYzqPuz0dNJ5vlFITRdYWq4cz.3kUT0QbFzE2',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (57,'Camila','Zaltron','z-camilinha@hotmail.com',1,'$2y$10$cmIa9x/erre12edu0vL.ZeaBJMhVBx47T9ng6ZSGOWhd7IbXU5ywu',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (58,'Lais VerÃ´nica','Pereira de Santana','laisveronicca@live.com',1,'$2y$10$c.LOU9WNYDZ3a4pSiPpWJenGO7Pfkdbutdy00//yttjnUx1L9Rkb2',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (59,'JÃºlia Denardin','Denardin','juliadenardin@gmail.com',1,'$2y$10$g8TqRMs0eO6Dy00vhbR/7u5SURK9a91jSCBF33VGkGhUVgmAdqINC',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (60,'Sandra AndrÃ©a','Haag Padilha','adv.sandra.andrea@gmail.com',1,'$2y$10$xmPDCFemi6qxPVJ.HaNpjOi/PEjTgMQOeYpWkLONrkqRr2t9BYnkS',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (61,'Noely','Lopes de Moraes','moraesnoely@gmail.com',1,'$2y$10$vPVClHe7nWloFIoGL56GuOKSO0YLfTAQ5pI6t9M8D9sONY/LBlq6i',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (62,'Roberto','Jacobi de Oliveira','robertojacobi85@gmail.com',1,'$2y$10$EfQQ2uwZUJEOPBltc6uHHeb7KAFTaHHEtKxOoe1Jnx5P4OVW0IqMG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (63,'Carine','Tomaz','carine-tomaz@hotmail.com',1,'$2y$10$xkursrNwkuoV7HukACPiUOgf0VmZEgAF6QloaqE4t9irk9AFhN8CG',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (64,'Jonas','Matias Assmann','jonas_assmann@hotmail.com',1,'$2y$10$XjC3/SlXacGfX1tfwpjUpectwFJ2CcWqdxWjbgA2.pfaEwn9HakJu',0,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (65,'Ricardo','Silveira','rsilveira1987@gmail.com',1,'$2y$10$PK7XNpn1u1cIDToQZ.hz3etdLcFlq7..1UObDJ1hH5BgGdA9dI.Ji',1,current_time);
+-- INSERT INTO tb_accounts ( id, first_name, second_name, email, status, password, is_teacher, created_at ) VALUES (66,'Gildomiro','Bairros','gbairros@gmail.com',1,'$2y$10$PK7XNpn1u1cIDToQZ.hz3etdLcFlq7..1UObDJ1hH5BgGdA9dI.Ji',1,current_time);
+
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Sistema Operacional Windows', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Microsoft Office Word e LibreOffice Writer', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'Microsoft Excel e LibreOffice Calc', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'Microsoft PowerPoint e LibreOffice Impress', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'Navegadores de Internet e Correio EletrÃ´nico', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'Redes de Computadores', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (7, 'SeguranÃ§a da InformaÃ§Ã£o e CertificaÃ§Ã£o Digital', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (8, 'Fundamentos da Teoria Geral de Sistemas', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (9, 'Sistemas de InformaÃ§Ã£o', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (10, 'Teoria da InformaÃ§Ã£o', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (11, 'Banco de Dados', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (12, 'BigData', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (13, 'MineraÃ§Ã£o de Dados', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (14, 'TransformaÃ§Ã£o Digital', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (15, 'Linux', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (16, 'BI', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (17, 'Python', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (18, 'Linguagem R', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (19, 'Conceitos de Hardware e Software', '2021-06-01 11:57:24', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (20, 'Backup', '2021-06-18 10:24:59', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (21, 'Pesquisa na Internet', '2021-06-18 10:25:05', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (22, 'UtilitÃ¡rios', '2021-07-16 18:56:31', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (23, 'Softwares de ComunicaÃ§Ã£o', '2022-03-08 16:09:14', NULL);
+-- INSERT INTO tb_subjects (`id`, `name`, `created_at`, `updated_at`) VALUES (24, 'InteligÃªncia Artificial', '2022-03-08 16:25:24', NULL);
+
+-- INSERT INTO tb_disciplines (id, name, created_at) VALUES (1, 'Informática', current_time);
+-- INSERT INTO tb_disciplines (id, name, created_at) VALUES (2, 'Português', current_time);
+
+-- INSERT INTO tb_stages (id, name, index_order, created_at) VALUES (1, 'Aquisição', 1, current_time);
+-- INSERT INTO tb_stages (id, name, index_order, created_at) VALUES (2, 'Esquematização', 2, current_time);
+-- INSERT INTO tb_stages (id, name, index_order, created_at) VALUES (3, 'Revisão', 3, current_time);
+-- INSERT INTO tb_stages (id, name, index_order, created_at) VALUES (4, 'Testes', 4, current_time);
+
+-- INSERT INTO tb_institutions (id, name, url_image, created_at) VALUES (1, 'Policia Civil RS','https://sindpolmg.org.br/wp-content/uploads/2021/02/Site-c.png', current_time );
+-- INSERT INTO tb_institutions (id, name, url_image, created_at) VALUES (2, 'SERPRO', 'https://files.tecnoblog.net/wp-content/uploads/2018/06/serpro-sede-700x495.jpg', current_time );
+
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (1, 'Agente Penitenciário', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (2, 'Delegado', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (3, 'Escrivão', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (4, 'Investigador', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (5, 'Perito Criminal', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (6, 'Analista de Sistemas', current_time );
+-- INSERT INTO tb_job_positions (id, name, created_at) VALUES (7, 'Técnico de Redes', current_time );
+
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,1, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,2, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,3, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,4, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,5, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,6, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,7, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,8, current_time);
+-- INSERT INTO tb_discipline_subjects (id_discipline, id_subject, created_at) VALUES (1,9, current_time);
+
+-- INSERT INTO tb_contests (id, name, id_institution, id_job_position, year, status, created_at) VALUES (1, 'Concurso Exemplo SUSEPE', 1, 1, 2020, 'published' ,current_time);
+-- INSERT INTO tb_contests (id, name, id_institution, id_job_position, year, status, created_at) VALUES (2, 'Concurso Exemplo SERPRO', 2, 6, 2020, 'published' ,current_time);
+
+-- INSERT INTO tb_study_plans (id, id_contest, id_discipline, name, status, created_at) VALUES (1, 1, 1, 'Plano de Estudos - SUSEPE - Informática', 'published', current_time);
+-- INSERT INTO tb_study_plans (id, id_contest, id_discipline, name, status, created_at) VALUES (2, 1, 2, 'Plano de Estudos - SUSEPE - Português ', 'published', current_time);
+-- INSERT INTO tb_study_plans (id, id_contest, id_discipline, name, status, created_at) VALUES (3, 2, 1, 'Plano de Estudos - SERPRO - Informática', 'published', current_time);
+
+-- INSERT INTO tb_enrolled_accounts (id, id_account, id_contest, id_study_plan, created_at, updated_at) VALUES (1, 1, 1, 1, current_time, current_time);
+-- INSERT INTO tb_enrolled_accounts (id, id_account, id_contest, id_study_plan, created_at, updated_at) VALUES (2, 1, 1, 2, current_time, current_time);

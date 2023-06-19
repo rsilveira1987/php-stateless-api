@@ -1,0 +1,8 @@
+{% macro thumbnail(account) %}
+    {% if account.url_image | length > 0 %}
+    {# onerror="this.onerror=null,this.src='{{ path_for("profile.avatar-initials",{initial:initial}) }}'" #}
+    <img src="{{ account.url_image }}" alt="Avatar image">
+    {% else %}
+    <p>{{ account.first_name | first }}{{ account.second_name | first }}</p>
+    {% endif %}
+{% endmacro %}

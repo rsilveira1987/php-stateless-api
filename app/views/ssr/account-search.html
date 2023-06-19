@@ -1,0 +1,96 @@
+{% import "macros/thumbnail.twig" as macro %}
+<style>
+    .grid {
+        margin: 1rem 0;
+    }
+    .grid-item {
+            margin: 1rem 0;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            /* border-left: 5px solid var(--color-support100); */
+            padding-right: 1rem;
+    }
+    .grid-item:hover {
+        background-color: var(--color-black5);
+        
+    }
+    .grid-item a {
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: 1rem;
+
+        padding: .5rem 1rem;
+
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    .grid-item p {
+        color: var(--color-support100);
+    }
+    small.title {
+        margin-top: 2rem;
+        font-weight: bold;
+        color: var(--color-black80);
+    }
+    div.empty {
+        padding: 1rem 0;
+    }
+    .btn-dismiss {
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--color-black80);
+    }
+    .btn-dismiss:hover {
+        color: var(--color-black100);
+    }
+
+    figure {
+        outline: 3px solid var(--color-support80);
+        border: 3px solid #FFFFFF;
+    }
+
+</style>
+
+<div class="grid" id="grid">
+    <small class="title">Resultados</small>
+    {% for account in accounts %}
+    <div class="grid-item">
+        
+        <a href="{{ path_for('account.view',{uuid:account.uuid}) }}">
+            <figure class="thumbnail">
+                {{ macro.thumbnail(account) }}
+            </figure>
+            <div>
+                <p>{{ account.first_name }} {{ account.second_name }}</p>
+                <small>{{ account.email }}</small>
+            </div>
+        </a>
+        <button type="button" class="btn-gray btn-dismiss" onclick="dismiss(this.parentElement);">
+            <i class="material-icons">close</i>
+        </button>
+    </div>
+    {% else %}
+    <div class="empty">
+        <p>Nenhuma conta encontrada.</p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    
+    function dismiss(el) {
+        let target = $('#grid');
+        el.remove();
+        if ($(target).children().length == 1) {
+            // just the title ramains
+            $(target).empty();
+        }
+    }
+</script>

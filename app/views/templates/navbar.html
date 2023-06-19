@@ -1,0 +1,50 @@
+<style>
+    nav {
+        background-color: #FFFFFF;
+        border-top: 1px solid var(--color-black10);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    nav a {
+        color: var(--color-black50);
+        position: relative;
+    }
+    nav a.active::after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        outline: 2px solid #FFFFFF;
+        background: var(--support-gradient);
+        position: absolute;
+        right: -.5rem;
+        top: -.5rem;
+    }
+
+    nav .container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+    
+</style>
+<nav>
+    <div class="container">
+        <a href="{{ path_for('home') }}" class="{{ active == 'home' ? 'active' : '' }}">
+            <i class="material-icons">home</i>
+        </a>
+        <a href="{{ path_for('search') }}" class="{{ active == 'search' ? 'active' : '' }}">
+            <i class="material-icons">search</i>
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,107 @@
+{% macro accountInfo(account) %}
+    <style>
+        .account-info {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            {# gap: 1rem; #}
+        }
+        .account-info p {
+            margin-left: 1rem;
+            display: none;
+        }
+        @media screen and (min-width: 768px) {
+            .account-info p {
+                display: block;
+            }
+        }
+    </style>
+    <div class="account-info">
+        {# <figure class="thumbnail">
+            {% set initials = account.first_name|first ~ account.second_name|first  %}
+            <img src="{{ account.url_image }}" onerror="this.onerror=null,this.src='{{ path_for("api.thumbnail",{initials:initials}) }}'" alt="Thumbnail">     
+        </figure> #}
+        <div>
+            <p>Olá, {{account.first_name }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro accountAvatar(account) %}
+    <figure class="avatar">
+        {% set initials = account.first_name|first ~ account.second_name|first  %}
+        <img src="{{ account.url_image }}" onerror="this.onerror=null,this.src='{{ path_for("api.thumbnail",{initials:initials}) }}'" alt="Thumbnail">     
+    </figure>
+{% endmacro %}
+
+{% macro snackBar() %}
+    {% set message = flash.getMessage('snackbar') | first %}
+    {% if message %}
+    <!-- snackbar -->
+    <style>
+        .snackbar-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 1rem;
+            max-width: 640px;
+            width: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .snackbar {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--color-black100);
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .snackbar p {
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+        .snackbar {
+            border-radius: 4px;
+        }
+        .snackbar button {
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            color: var(--color-support100);
+            background-color: var(--color-support10);
+            border-radius: 4px;
+            align-self: flex-start;
+            padding: .5rem;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .snackbar button:hover {
+            background-color: var(--color-support20);
+        }
+    </style>
+    <div class="snackbar-wrapper">
+        <div class="snackbar">
+            <p>{{ message }}</p>
+            <button type="button" class="btn-primary" onclick="closeSnackbar();">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+    </div>
+    <script>
+        function closeSnackbar() {
+            $('.snackbar-wrapper').remove();
+        }
+    </script>
+    <!-- end snackbar -->
+    {% endif %}
+{% endmacro %}

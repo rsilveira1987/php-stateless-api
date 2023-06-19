@@ -1,0 +1,47 @@
+<div class="container">
+    <button type="button" onclick="closeWin();">Fechar</button>
+    <div style="display: flex; flex-flow: row nowrap; gap: 1rem; align-items: center; margin: 2rem 0;">
+        <a href="{{ path_for('account.edit',{uuid:account.uuid}) }}" class="btn outline">
+            <span>Editar</span>
+        </a>
+        <a href="{{ path_for('account.edit',{uuid:account.uuid}) }}" class="btn outline">
+            <span>Change Password</span>
+        </a>
+        <form action="{{ path_for('account.delete',{uuid:account.uuid}) }}" method="POST">
+            <button type="submit" class="outline" name="action" value="delete">Delete</button>
+        </form>
+    </div>
+    <figure class="thumbnail">
+    {{ macro.thumbnail(auth.user) }}
+    </figure>
+    <div class="group">
+        <span>First Name:</span>
+        <span>{{ auth.user.first_name }}</span>
+    </div>
+    <div class="group">
+        <span>Second Name:</span>
+        <span>{{ auth.user.second_name }}</span>
+    </div>
+    <div class="group">
+        <span>Email:</span>
+        <span>{{ auth.user.email }}</span>
+    </div>
+    <div class="group">
+        <span>URL Image:</span>
+        {% if account.url_image | length > 0 %}
+        <span style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ auth.user.url_image }}</span>
+        {% else %}
+        <span>null</span>
+        {% endif %}
+    </div>
+    <div style="text-align: right; margin: 2rem 0;">
+        <small>Criado em {{ auth.user.created_at }} | Última atualização {{ auth.user.updated_at == '' ? 'não definido' : account.updated_at }}</small>
+    </div>
+</div>
+
+<script>
+    function closeWin(){   // Tested Code
+        var someIframe = window.parent.document.getElementById('iframe_callback');
+        someIframe.parentNode.removeChild(someIframe);
+    }
+</script>

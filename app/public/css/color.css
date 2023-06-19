@@ -1,0 +1,78 @@
+:root {
+
+    /* Background */
+    --background-color: #FFFFFF;
+    
+    /* Black */
+    --color-black100: #222222;
+    --color-black90: #393939;
+    --color-black80: #4E4E4E;
+    --color-black70: #656565;
+    --color-black60: #7A7A7A;
+    --color-black50: #919191;
+    --color-black40: #A7A7A7;
+    --color-black30: #BDBDBD;
+    --color-black20: #D3D3D3;
+    --color-black10: #E9E9E9;
+    --color-black5: #F4F4F4;
+
+    /* Light Blue */
+    --color-primary100: #003ba8;
+    --color-primary90: #1a4fb1;
+    --color-primary80: #3362b9;
+    --color-primary70: #4d76c2;
+    --color-primary60: #6689cb;
+    --color-primary50: #809dd4;
+    --color-primary40: #99b1dc;
+    --color-primary30: #b3c4e5;
+    --color-primary20: #ccd8ee;
+    --color-primary10: #e6ebf6;
+    
+    /* Orange */
+    --color-support100: #f5903d;
+    --color-support90: #f69b51;
+    --color-support80: #f7a664;
+    --color-support70: #f8b177;
+    --color-support60: #f9bc8b;
+    --color-support50: #fac79e;
+    --color-support40: #fbd3b1;
+    --color-support30: #fcdfc5;
+    --color-support20: #fde9d8;
+    --color-support10: #fef4ec;
+
+    /* Danger */
+    --color-danger100: #F55031;
+    --color-danger90: #f66246;
+    --color-danger80: #f7735a;
+    --color-danger70: #f8856f;
+    --color-danger60: #f99683;
+    --color-danger50: #faa898;
+    --color-danger40: #fbb9ad;
+    --color-danger30: #fccbc1;
+    --color-danger20: #fddcd6;
+    --color-danger10: #feeeea;
+
+    /* Success */
+    --color-success100: #56F5B4;
+    --color-success90: #67f6bc;
+    --color-success80: #64e1f7;
+    --color-success70: #77e5f8;
+    --color-success60: #8be9f9;
+    --color-success50: #9eedfa;
+    --color-success40: #b1f0fb;
+    --color-success30: #c5f4fc;
+    --color-success20: #d8f8fd;
+    --color-success10: #ecfbfe;
+
+    /* Gradients */
+    --color-primary-gradient-dark: #0071BC;
+    --color-primary-gradient-light: #65BAF7;
+
+    --support-gradient-dark: #f12711;
+    --support-gradient-light: #f5af19;
+    
+    --primary-gradient: linear-gradient(90deg, var(--color-primary-gradient-dark) 0%, var(--color-primary-gradient-light) 100%);
+    --support-gradient: linear-gradient(90deg, var(--support-gradient-dark) 0%, var(--support-gradient-light) 100%);
+    --danger-gradient: linear-gradient(90deg, #F55B58 0%, #BD1413 100%);
+
+}

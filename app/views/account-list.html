@@ -1,0 +1,212 @@
+{% extends 'templates/document.html' %}
+{% import "macros/thumbnail.twig" as macro %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+
+    <style>
+      
+        
+        .grid-item {
+            margin: 1rem 0;
+            border-left: 5px solid var(--color-support100);
+        }
+        .grid-item a {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 1rem;
+
+            padding: .5rem 1rem;
+
+            color: inherit;
+            text-decoration: none;
+        }
+        .grid-item a:hover {
+            /* background-color: var(--color-black5); */
+            background-color: var(--color-support10);
+            border-left: 5px solid var(--color-support100);
+            /* box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px; */
+            /* border-radius: 8px; */
+        }
+        .grid-item p {
+            color: var(--color-support100);
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1rem;
+            align-items: center;
+            margin: .5rem 0;
+        }
+        .form-group input {
+            width: 100%;
+        }
+        .form-actions {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-items: flex-end;
+            align-items: flex-end;
+            margin: 2rem 0;
+        }
+
+        form[name='frmSearch'] {
+            display: flex;
+            flex-flow: row nowrap;
+            
+        }
+        form[name='frmSearch'] input {
+            flex: 1;
+            border: 1px solid var(--color-support80);
+            border-right: none;
+        }
+    </style>
+    
+    
+    
+
+    <div class="container">
+
+        <a href="{{ path_for('index') }}" class="btn">
+            <i class="material-icons">arrow_back</i>
+            <span>Back</span>
+        </a>
+    
+        <div style="display: flex; flex-flow: row nowrap; gap: 1rem; justify-content: space-between; align-items: center; margin: 2rem 0;">
+            <h4>Search</h4>
+            <a href="{{ path_for('account.create') }}" class="btn">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+
+        <form name="frmSearch" action="" data-action="{{ path_for('api.searchAccounts') }}" method="GET">
+            <input type="text" name="q" id="q" class="btn-search">
+            <button type="button" class="btn-search">Search</button>  
+        </form>
+    
+        <div class="grid" id="grid">
+            {% for account in accounts %}
+            <div class="grid-item">
+                
+                <a href="{{ path_for('account.view',{uuid:account.uuid}) }}">
+                    <figure class="thumbnail">
+                        {{ macro.thumbnail(account) }}
+                    </figure>
+                    <div>
+                        <p>{{ account.first_name }} {{ account.second_name }}</p>
+                        <small>{{ account.email }}</small>
+                    </div>
+                </a>
+            </div>
+            {% else %}
+            <div class="empty">
+                <p>None account has been found.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    
+{% endblock %}
+
+{% block js %}
+<script>
+    function goToSearch() {
+        window.location.href = '{{ path_for("account.search") }}';
+    }
+    function showSnackbar(status,message) {
+        $('.snackbar').removeClass('fail').removeClass('success').addClass(status);
+        $('.snackbar p').text(message);
+        $('.snackbar-wrapper').addClass('open');
+    }
+    function closeSnackbar() {
+        $('.snackbar-wrapper').removeClass('open');
+    }
+
+    function showModal(title, description) {
+        $('.modal-title h5').text(title);
+        $('.modal-body p').text(description);
+        $('.modal-wrapper').addClass('open');
+    }
+    function closeModal() {
+        $('.modal-wrapper').removeClass('open');
+    }
+
+    function loadData(data) {
+        var target = $('#grid');
+        $(data.response).each(function(index, obj){
+            $(target).append(
+                "<div class=\"grid-item\">" +
+                    "<a href=\"/accounts/"+obj.uuid+"/view\">" +
+                        "<figure class=\"thumbnail\">" +
+                            "<img src=\""+obj.url_image+"\">" +
+                        "</figure>" +
+                        "<div>" +
+                            "<p>"+obj.first_name+" "+obj.second_name+"</p>" +
+                            "<small>"+obj.email+"</small>" +
+                        "</div>" +
+                    "</a>" +
+                "</div>"  
+            );
+        });
+    }
+
+    $(document).ready(function(e){
+
+        $('.btn-search').on('click',function(e){
+            window.location.href = '{{ path_for("account.search") }}';
+        })
+
+        $('form').on('submit',function(e){
+            e.preventDefault();
+            try {
+                let formData = new FormData(this);
+                // form reference
+                let form = this;
+                // form action
+                let url = $(this).data('action');
+                //Create an object from the form data entries
+                let formDataObject = Object.fromEntries(formData.entries());
+                // Format the plain form data as JSON
+                let formDataJsonString = JSON.stringify(formDataObject);
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: formDataJsonString,
+                    contentType: "application/json",
+                    dataType: 'json'
+                })
+                .done(function(data) {
+                    // console.log(data);
+                    $('#grid').empty();
+                    loadData(data);
+                    // showSnackbar('success','Dados atualizados.');
+                    // return resolve(data);
+
+                })
+                .fail(function(error) {
+                    console.error(error);
+                    // showSnackbar('fail',error.responseJSON.response);
+                    // return reject(error);
+                })
+                .always(function() {
+                    console.log('always');
+                    // called after done or fail
+                });
+
+
+                //Call the `postFormFieldsJson()` function
+                // let responseData = await postFormFieldsAsJson({ url, formFields });
+            } catch (error) {
+                // Handle the error here.
+                console.error(`An has occured ${error}`);
+            }
+        });
+
+    });
+    
+</script>
+{% endblock %}

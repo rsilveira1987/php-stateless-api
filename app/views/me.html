@@ -1,0 +1,115 @@
+{% extends 'templates/document.html' %}
+{% import "macros/thumbnail.twig" as macro %}
+
+{% block title %}Index{% endblock %} 
+
+{% block body %}
+
+    <style>
+        header.header {
+            border-bottom: 1px solid var(--color-black10);
+            height: 80px;
+        }
+        header.header .container {
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+        figure.thumbnail {
+            margin: 2rem 0;
+        }
+        .header .container {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        .group {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1rem;
+            align-items: center;
+            margin: .5rem 0;
+        }
+
+        .info {
+            margin: 2rem 0;
+            /* border: 1px solid var(--color-black5); */
+            background-color: #FAFAFA;
+            padding: 1.5rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            /* box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px; */
+        }
+        
+    </style>
+
+    <header class="header">
+        <div class="container">
+            <a href="{{ path_for('home') }}" class="header-btn">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <p style="font-size: var(--h4);">{{ auth.user.first_name }}</p>
+            <!-- <a href="{{ path_for('me.edit') }}" style="margin-left: auto;" class="header-btn">
+                <i class="material-icons">edit</i>
+                <span>Editar</span>
+            </a> -->
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <section style="display: flex; flex-flow: row wrap; align-items: center; gap: 1rem; margin: 2rem 0;">
+            <figure class="avatar">
+                {% set initials = auth.user.first_name|first ~ auth.user.second_name|first  %}
+                <img src="{{ auth.user.url_image }}" onerror="this.onerror=null,this.src='{{ path_for("api.thumbnail",{initials:initials}) }}'" alt="Thumbnail">     
+            </figure>
+            <div>
+                <h2 style="color: var(--color-support100);">{{ auth.user.first_name }}</h2>
+                <h2 style="color: var(--color-support100);">{{ auth.user.second_name }}</h2>
+                <small>{{ auth.user.email }}</small>
+            </div>
+        </section>
+
+        <div style="display: flex; flex-flow: row nowrap; align-items: center; justify-content: space-between;">
+            <p style="font-size: var(--h5);">Dados pessoais</p>
+            <a href="{{ path_for('me.edit') }}" style="margin-left: auto;" class="btn">
+                <i class="material-icons">edit</i>
+                <span>Editar</span>
+            </a>
+        </div>
+        
+        
+        <section class="info">
+            <div class="group">
+                <p>First Name:</p>
+                <span>{{ auth.user.first_name }}</span>
+            </div>
+            
+            <div class="group">
+                <p>Second Name:</p>
+                <span>{{ auth.user.second_name }}</span>
+            </div>
+
+            <div class="group">
+                <p>Email:</p>
+                <span>{{ auth.user.email }}</span>
+            </div>
+
+            <div class="group">
+                <p>URL Image:</p>
+                {% if auth.user.url_image | length > 0 %}
+                <span style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">{{ auth.user.url_image }}</span>
+                {% else %}
+                <span>null</span>
+                {% endif %}
+            </div>
+        </section>
+
+        <div style="text-align: right; margin: 2rem 0;">
+            <small>Criado em {{ auth.user.created_at }} | Última atualização {{ account.updated_at == '' ? 'não definido' : account.updated_at }}</small>
+        </div>
+
+    </div>
+
+{% endblock %}
